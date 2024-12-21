@@ -10,6 +10,13 @@ Duration: 17Dec2024-17Jan2024
 
 # Customer Segmentation And Analysis 
 
+## Overview 
+
+![Screenshot 2024-12-21 105203](https://github.com/user-attachments/assets/ccb4ae1d-3d0e-449a-9eb3-30d3385eb6e8)
+
+![Screenshot 2024-12-21 105217](https://github.com/user-attachments/assets/da7c2dfd-c310-4eca-ae35-9ae39337faca)
+
+
 ## Objective
 
 The objective of this project is to perform customer segmentation analysis on a retail dataset to identify distinct customer segments based on purchasing behavior. By clustering customers into different groups, the goal is to better understand customer preferences and behaviors, which can help businesses improve marketing strategies, sales tactics, and customer relationship management.
