@@ -1,6 +1,14 @@
+Name: Richa Singh
 
+Company: Codetech IT Solutions
 
-# Customer Segmentation Analysis Using K-means Clustering
+ID: CT08EMC
+
+Domain: Data Analysis
+
+Duration: 17Dec2024-17Jan2024
+
+# Customer Segmentation And Analysis 
 
 ## Objective
 
