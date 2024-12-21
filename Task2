@@ -1,0 +1,40 @@
+import pandas as pd
+import numpy as np
+from sklearn.cluster import KMeans
+from sklearn.preprocessing import StandardScaler
+import matplotlib.pyplot as plt
+
+# Load dataset (make sure to update the path if needed)
+df = pd.read_csv('online_retail.csv', encoding='ISO-8859-1')
+
+# Clean and preprocess data
+df = df.dropna(subset=['CustomerID', 'InvoiceNo', 'UnitPrice'])  # Drop missing values in crucial columns
+df['Amount'] = df['Quantity'] * df['UnitPrice']  # Calculate total purchase amount
+
+# Aggregate data by customer
+customer_data = df.groupby('CustomerID').agg({
+    'Amount': 'sum',  # Total spend
+    'InvoiceNo': 'nunique',  # Frequency of purchases
+}).reset_index()
+
+# Normalize the features
+scaler = StandardScaler()
+scaled_data = scaler.fit_transform(customer_data[['Amount', 'InvoiceNo']])
+
+# Apply K-means clustering
+kmeans = KMeans(n_clusters=4, random_state=42)
+customer_data['Cluster'] = kmeans.fit_predict(scaled_data)
+
+# Analyze cluster characteristics
+for i in range(4):
+    print(f"Cluster {i} Characteristics:")
+    print(customer_data[customer_data['Cluster'] == i].mean())
+    print("\n")
+
+# Visualize the clusters
+plt.scatter(customer_data['Amount'], customer_data['InvoiceNo'], c=customer_data['Cluster'], cmap='viridis')
+plt.xlabel('Total Purchase Amount')
+plt.ylabel('Frequency of Purchases')
+plt.title('Customer Segmentation')
+plt.colorbar(label='Cluster')
+plt.show()
