@@ -4,7 +4,7 @@ from sklearn.cluster import KMeans
 from sklearn.preprocessing import StandardScaler
 import matplotlib.pyplot as plt
 
-# Load dataset (make sure to update the path if needed)
+# Load dataset 
 df = pd.read_csv('online_retail.csv', encoding='ISO-8859-1')
 
 # Clean and preprocess data
